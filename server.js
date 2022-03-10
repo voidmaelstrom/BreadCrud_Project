@@ -33,6 +33,10 @@ app.listen(PORT, () => {
 const breadsController = require('./controllers/breads_controller.js')
 app.use('/breads', breadsController)
 
+// Bakers
+const bakersController = require('./controllers/bakers_controller.js')
+app.use('/bakers', bakersController)
+
 // 404 Page
 app.get('*', (req, res) => {
   res.send('404')
