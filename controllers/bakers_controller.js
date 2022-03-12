@@ -24,14 +24,29 @@ baker.get('/', (req, res) => {
 })
 
 // Show: 
+// baker.get('/:id', (req, res) => {
+//   Baker.findById(req.params.id)
+//       .populate('breads')
+//       .then(foundBaker => {
+//           res.render('bakerShow', {
+//               baker: foundBaker
+//           })
+//       })
+// })
+
+// Show:
+// show 
 baker.get('/:id', (req, res) => {
-  Baker.findById(req.params.id)
-      .populate('breads')
-      .then(foundBaker => {
-          res.render('bakerShow', {
-              baker: foundBaker
-          })
-      })
+    Baker.findById(req.params.id)
+        .populate({
+            path: 'breads',
+            options: { limit: 2 }
+        })
+        .then(foundBaker => {
+            res.render('bakerShow', {
+                baker: foundBaker
+            })
+        })
 })
 
 // Delete
