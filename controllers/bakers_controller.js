@@ -12,7 +12,7 @@ module.exports = baker
 baker.get('/data/seed', (req, res) => {
     Baker.insertMany(bakerSeedData)
         .then(res.redirect('/breads'))
-  })
+})
 
 // Index: 
 baker.get('/', (req, res) => {
