@@ -8,6 +8,12 @@ const breads = require('./breads_controller.js')
 // export
 module.exports = baker
 
+// baker seed
+baker.get('/data/seed', (req, res) => {
+    Baker.insertMany(bakerSeedData)
+        .then(res.redirect('/breads'))
+  })
+
 // Index: 
 baker.get('/', (req, res) => {
   Baker.find()
